@@ -20,7 +20,7 @@ COPY visual_chatgpt.py requirement.txt download.sh ./
 RUN conda create -n visgpt python=3.8 && \
     echo "conda activate visgpt" >> ~/.bashrc && \
     /bin/bash -c "source ~/.bashrc" && \
-    pip install --no-cache-dir -r requirement.txt -i https://pypi.douban.com/simple && \
+    pip install --no-cache-dir -r requirement.txt && \
     bash download.sh && \
     conda clean --all --yes && \
     rm -rf /opt/conda/pkgs/*
