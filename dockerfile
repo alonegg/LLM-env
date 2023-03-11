@@ -7,7 +7,7 @@ COPY visual_chatgpt.py requirement.txt download.sh ./
 RUN apt-get update && \
     apt-get install -y git && \
     pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirement.txt && \
+    conda install --no-cache-dir -r requirement.txt && \
     bash download.sh && \
     apt-get remove -y git && \
     apt-get autoremove -y && \
