@@ -26,7 +26,7 @@ RUN conda create -n visgpt python=3.8 && \
     rm -rf /opt/conda/pkgs/*
 
 # Set an environment variable for the OpenAI API key
-ENV OPENAI_API_KEY=${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}
+ENV OPENAI_API_KEY=${{ secrets.OPAIKEY }}
 
 # Create a new directory for the generated images
 RUN mkdir /app/image && chmod 777 /app/image
