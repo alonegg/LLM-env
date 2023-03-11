@@ -33,17 +33,3 @@ RUN mkdir /app/image && chmod 777 /app/image
 
 # Start the application
 CMD ["bash", "-c", "python visual_chatgpt.py"]
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-~                                                                                                                                                                                               
-                                                                                                                                                                              29,72         All
