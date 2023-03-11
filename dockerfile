@@ -31,4 +31,4 @@ RUN conda create -n visgpt python=3.8 && \
 RUN mkdir /app/image && chmod 777 /app/image
 
 # Start the application
-CMD ["bash", "-c", "python visual_chatgpt.py"]
+# CMD ["bash", "-c", "python visual_chatgpt.py"]
