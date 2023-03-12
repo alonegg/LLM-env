@@ -1,26 +1,30 @@
-FROM python:3.8-slim-buster
+# Start with the official PyTorch image
+FROM pytorch/pytorch:1.10.0-cuda11.3-cudnn8-runtime
 
+# Set the working directory
 WORKDIR /app
 
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    libsm6 \
+    libxext6 \
+    libfontconfig1 \
+    libxrender1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy files to the working directory
 COPY visual_chatgpt.py requirement.txt download.sh ./
 
-# Install miniconda
-ENV CONDA_DIR /opt/conda
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-     /bin/bash ~/miniconda.sh -b -p /opt/conda
- 
-# Put conda in path so we can use conda activate
-ENV PATH=$CONDA_DIR/bin:$PATH
-
-RUN apt-get update && \
-    apt-get install -y git && \
-    pip install --no-cache-dir --upgrade pip && \
+# Create a new environment and install dependencies
+RUN conda create -n visgpt python=3.8 && \
+    echo "conda activate visgpt" >> ~/.bashrc && \
+    /bin/bash -c "source ~/.bashrc" && \
     conda install --no-cache-dir -r requirement.txt && \
     bash download.sh && \
-    apt-get remove -y git && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    conda clean --all --yes && \
+    rm -rf /opt/conda/pkgs/*
 
 
+# Create a new directory for the generated images
 RUN mkdir /app/image && chmod 777 /app/image
