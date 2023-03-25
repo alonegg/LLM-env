@@ -1,5 +1,5 @@
 # 使用安装了pytorch的ubuntu镜像作为基础镜像
-FROM pytorch/pytorch:1.10.0-cuda11.1-cudnn8-runtime-ubuntu18.04
+FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
 
 # 设置工作目录
 WORKDIR /app
