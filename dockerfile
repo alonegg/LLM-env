@@ -6,10 +6,6 @@ WORKDIR /app
 
 # 安装git和conda
 RUN apt-get update && apt-get install -y git wget && \
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-    chmod +x Miniconda3-latest-Linux-x86_64.sh && \
-    ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
-    rm Miniconda3-latest-Linux-x86_64.sh
 
 # 将conda加入到环境变量
 ENV PATH="/opt/conda/bin:$PATH"
