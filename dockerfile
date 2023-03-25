@@ -5,7 +5,7 @@ FROM pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
 WORKDIR /app
 
 # 安装git和conda
-RUN apt-get update && apt-get install -y git && \
+RUN apt-get update && apt-get install -y git wget && \
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x Miniconda3-latest-Linux-x86_64.sh && \
     ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
