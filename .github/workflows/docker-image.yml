@@ -1,4 +1,4 @@
-name: ci
+name: build LLM dev image
 
 on:
   push:
