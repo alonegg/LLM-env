@@ -23,6 +23,6 @@ RUN pip install -r requirements.txt
 # ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 
 # 运行命令
-CMD ["/bin/bash", "jupyter lab --ip=0.0.0.0"]
+# CMD ["/bin/bash", "jupyter lab --ip=0.0.0.0"]
 
 
