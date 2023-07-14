@@ -1,5 +1,5 @@
 # 使用安装了pytorch的ubuntu镜像作为基础镜像
-FROM graphcore/pytorch-jupyter
+FROM nvcr.io/nvidia/pytorch:23.06-py3
 
 
 # 设置工作目录
