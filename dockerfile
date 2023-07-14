@@ -1,5 +1,5 @@
 # 使用安装了pytorch的ubuntu镜像作为基础镜像
-FROM nvcr.io/nvidia/nemo:23.04
+FROM graphcore/pytorch-jupyter
 
 
 # 设置工作目录
@@ -23,6 +23,6 @@ RUN pip install -r requirements.txt
 # ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 
 # 运行命令
-CMD ["/bin/bash", "/workspace/nemo/start-jupyter.sh"]
+CMD ["/bin/bash", "jupyter lab --ip=0.0.0.0"]
 
 
